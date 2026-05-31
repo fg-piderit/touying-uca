@@ -19,7 +19,7 @@
       stroke: (bottom: 2pt + self.colors.tertiary),
     )
     set align(horizon)
-    set text(fill: self.colors.neutral-lightest, size: 1em)
+    set text(fill: self.colors.neutral-lightest, size: 1.25em)
     components.left-and-right(
       if self.store.title != none {
         utils.call-or-display(self, self.store.title)
@@ -203,11 +203,13 @@
   body,
 ) = {
   set text(size: 20pt)
+  show heading.where(level: 1): set heading(numbering: "1.1.")
+  show raw.where(block: true): it => block(width: 100%, stroke: black, inset: 1em, it)
 
   show: touying-slides.with(
     config-page(
       paper: "presentation-" + aspect-ratio,
-      margin: (top: 2.5em, bottom: 2em, x: 2em),
+      margin: (top: 3.5em, bottom: 2em, x: 2em),
     ),
     config-common(
       slide-fn: slide,
